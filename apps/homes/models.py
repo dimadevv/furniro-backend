@@ -37,7 +37,7 @@ class Home(BaseModel):
     price = models.CharField(max_length=255)
     review = models.IntegerField(choices=ReviewChoice.choices)
     description = models.CharField(max_length=255)
-    size = models.ForeignKey(Size, on_delete=models.PROTECT)
+    size = models.ManyToManyField(Size, related_name="sizes", null=True, blank=True)
     color = models.CharField(max_length=255)
 
     def __str__(self):

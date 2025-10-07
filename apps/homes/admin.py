@@ -23,5 +23,13 @@ class HomeImage(admin.ModelAdmin):
 
 @admin.register(Home)
 class HomesAdminModel(admin.ModelAdmin):
-    list_display = ("id", "name", "price", "review", "size", "color")
-    list_display_links = ("id", "name", "price", "review", "size", "color")
+    list_display = ("id", "name", "price", "review", "get_sizes", "get_colors")
+    list_display_links = ("id", "name", "price", "review")
+
+    def get_sizes(self, obj):
+        return ", ".join([s.name for s in obj.sizes.all()])
+    get_sizes.short_description = "Sizes"
+
+    def get_colors(self, obj):
+        return ", ".join([c.name for c in obj.colors.all()])
+    get_colors.short_description = "Colors"
