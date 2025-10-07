@@ -32,8 +32,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG")
 
-# ALLOWED_HOSTS = ["furniro-backend-production-0632.up.railway.app"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["furniro-backend-production-0632.up.railway.app"]
+# ALLOWED_HOSTS = ["*"]
 
 # Application definition
 DJANGO_APPS = [
@@ -164,6 +164,8 @@ CACHES = {
         "KEY_PREFIX": "boilerplate",  # todo: you must change this with your project name or something else
     }
 }
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://furniro-backend-production-0632.up.railway.app/']
 
 # CELERY CONFIGURATION
 CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
