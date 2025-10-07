@@ -165,7 +165,9 @@ CACHES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://furniro-backend-production-0632.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = [
+    "https://furniro-backend-production-0632.up.railway.app",
+]
 
 # CELERY CONFIGURATION
 CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
