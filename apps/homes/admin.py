@@ -30,7 +30,7 @@ class HomesAdminModel(admin.ModelAdmin):
         return ", ".join([s.name for s in obj.size.all()])
 
     def get_colors(self, obj):
-        return ", ".join([c.name for c in obj.colors.all()])
+        return ", ".join([c.name for c in obj.color.all()])
     get_colors.short_description = "Colors"
 
 
