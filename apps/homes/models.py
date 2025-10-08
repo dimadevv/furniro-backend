@@ -16,6 +16,12 @@ class Size(models.Model):
     def __str__(self):
         return self.name
 
+class Color(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
 class HomeImage(BaseModel):
     home = models.ForeignKey("Home", on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to='homes/images/', help_text="Upload an image for the home item")
@@ -38,7 +44,7 @@ class Home(BaseModel):
     review = models.IntegerField(choices=ReviewChoice.choices)
     description = models.CharField(max_length=255)
     size = models.ManyToManyField(Size, related_name="sizes", null=True, blank=True)
-    color = models.CharField(max_length=255)
+    color = models.ManyToManyField(Color, related_name="colors", null=True, blank=True)
 
     def __str__(self):
         return self.name

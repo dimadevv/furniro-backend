@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.homes.models import Category, Size, HomeImage, Home
+from apps.homes.models import Category, Size, HomeImage, Home, Color
 
 
 @admin.register(Category)
@@ -33,3 +33,11 @@ class HomesAdminModel(admin.ModelAdmin):
     def get_colors(self, obj):
         return ", ".join([c.name for c in obj.colors.all()])
     get_colors.short_description = "Colors"
+
+
+@admin.register(Color)
+class ColorAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
+
+
+
