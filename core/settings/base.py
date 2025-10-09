@@ -177,9 +177,7 @@ CACHES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://furniro-backend-production-0632.up.railway.app",
-]
+
 
 # CELERY CONFIGURATION
 CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
@@ -189,3 +187,9 @@ CELERY_TIMEZONE = "Asia/Tashkent"
 
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = ["*"]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ["*"]
