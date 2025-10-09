@@ -72,8 +72,8 @@ REST_FRAMEWORK = {
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -82,11 +82,17 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
     "https://your-frontend-domain.vercel.app",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://furniro-backend-production-0632.up.railway.app",
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = "core.urls"
 
