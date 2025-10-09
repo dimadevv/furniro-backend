@@ -32,8 +32,8 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG")
 
-# ALLOWED_HOSTS = ["furniro-backend-production-0632.up.railway.app"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["furniro-backend-production-0632.up.railway.app"]
+# ALLOWED_HOSTS = ["*"]
 
 # Application definition
 DJANGO_APPS = [
@@ -72,9 +72,9 @@ REST_FRAMEWORK = {
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
