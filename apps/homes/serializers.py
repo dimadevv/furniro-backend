@@ -32,10 +32,17 @@ class HomeSerializers(serializers.ModelSerializer):
     size = SizeSerializers(read_only=True)
     category = CategorySerializers(read_only=True)
     images = HomeImageSerializers(read_only=True, many=True)
+    discount_price = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Home
         fields = (
-            "id", "name", "price", "review", "description", "size","category", "images", "color"
+            "id", "name", "price", "discount", "discount_price", "scu", "review", "description", "size","category", "images", "color"
         )
+
+    @staticmethod
+    def get_discount_price(obj):
+        if obj.discount:
+            return obj.price - (obj.price * obj.discount / 100)
+        return obj.price
 

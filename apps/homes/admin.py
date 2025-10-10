@@ -23,8 +23,10 @@ class HomeImage(admin.ModelAdmin):
 
 @admin.register(Home)
 class HomesAdminModel(admin.ModelAdmin):
-    list_display = ("id", "name", "price", "review", "get_sizes", "get_colors")
+    list_display = ("id", "name", "price", "discount", "scu", "review", "get_sizes", "get_colors")
     list_display_links = ("id", "name", "price", "review")
+    search_fields = ("name", "price", "scu")
+    list_filter = ("price", "discount")
 
     def get_sizes(self, obj):
         return ", ".join([s.name for s in obj.size.all()])
@@ -37,6 +39,7 @@ class HomesAdminModel(admin.ModelAdmin):
 @admin.register(Color)
 class ColorAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
+    search_fields = ("name",)
 
 
 
