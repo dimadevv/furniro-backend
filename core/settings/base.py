@@ -50,6 +50,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
+
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
@@ -138,8 +139,9 @@ CACHES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-2bb6a.up.railway.app/",
+    "https://web-production-2bb6a.up.railway.app",
 ]
+
 
 CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
 CELERY_RESULT_BACKEND = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
