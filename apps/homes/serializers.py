@@ -38,7 +38,7 @@ class ColorSerializer(serializers.ModelSerializer):
 
 
 class HomeSerializers(serializers.ModelSerializer):
-    size = SizeSerializers(read_only=True, many=True)
+    size = SizeSerializers(many=True)
     category = CategorySerializers(read_only=True)
     images = HomeImageSerializers(read_only=True, many=True)
     discount_price = serializers.SerializerMethodField(read_only=True)
