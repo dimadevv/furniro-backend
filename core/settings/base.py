@@ -138,7 +138,7 @@ CACHES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://furniro-backend-production-0632.up.railway.app",
+    "https://web-production-2bb6a.up.railway.app/",
 ]
 
 CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://localhost:6379")
